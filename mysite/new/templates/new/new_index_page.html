@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+{% block content %}
+<style>
+
+    .btn-gradient{
+        padding: 5px 20px 5px 20px;
+        background: linear-gradient(to right, rgb(50, 100, 109) 10%, rgb(25, 59, 66) 30%,rgba(17,37,41) 100%);
+    }
+    .btn-red{
+        padding: 5px 20px 5px 20px;
+        background: linear-gradient(to right, rgb(228, 19, 19) 10%, rgb(189, 0, 0) 30%,rgb(106, 32, 10) 100%);
+    }
+    table{
+        caption-side: top;
+        border-collapse: separate;
+        border-spacing: 5px 5px;
+    }
+    tr, th{
+        border: 2px solid #fff;
+        border-width: medium;
+    }
+    th{
+        width: 30.3%;
+    }
+    .table-bordered>:not(caption)>*>* {
+        border-width: 1px 1px;
+    }
+
+    .bang-dark tr, .bang-dark th{
+        border: 2px solid #000000;
+    }
+
+    .card-hover:hover{
+        background-color: #4d4d4db9;
+    }
+
+    @media (max-width: 600px){
+        .text-sm-x{
+            font-size: 15px;
+        }
+    }
+    .a-title{
+        text-decoration: none;
+        color: #000000;
+    }
+    .a-title:hover(){
+        color: #ff4400;
+    }
+    .intro-excerpt h1,
+    .intro-excerpt h2,
+    .intro-excerpt h3,
+    .intro-excerpt h4,
+    .intro-excerpt h5,
+    .intro-excerpt h6 {
+        color: #ffffff;
+    }
+    .card:hover h4{
+        color: #0084d0;
+    }
+    .img-crop{
+        height: 320px;
+    }
+</style>
+<div style="background-color: #000000;">
+    <div class="container marketing text-light" >
+        <div class="row featurette">
+            <div class="col-12 p-5">
+                <h1 class="display-3" style="font-weight: bold;">{{ page.title }}</h1>
+            </div>
+          </div>
+    </div>
+</div>
+<div class="hero">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-lg-5">
+                <div class="intro-excerpt">
+                    {{ page.intro|richtext }}
+                    <p>
+                        <a href="{% url 'advise' %}" class="btn btn-secondary me-2 mt-4">Liên hệ để được tư vấn</a>
+                        <a href="{{ url_about_index.url }}" class="btn btn-light btn-while-outline mt-4">Tìm hiểu về chúng tôi</a>
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-7 col-sm-4">
+                <div class="hero-img-wrap">
+                    <img src="{{ page.image.file.url }}" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mt-4" style="background-color: #ffffff;">
+    <div class="container marketing pb-5" >
+        <h2 class="pb-2 border-bottom display-5" style="font-family: 'Beautique Display', sans-serif;">{{ page.title2 }}</h2><br>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for post in blogpages %}
+            <div class="col">
+                {% if post.specific.image %}
+                {% image post.specific.image width-400 as my_image %}
+                <a href="{% pageurl post %}" class="card shadow-sm text-decoration-none">
+                    <img class="bd-placeholder-img card-img-top img-crop"  width="100%" height="100%" src="{{ my_image.url }}" alt="{{ post.title }}">    
+                    <div class="card-body">
+                      <div class="a-title"> <h4>{{ post.title }}</h4></div> 
+                    <p class="card-text">{{ post.specific.intro }}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small class="text-muted">{{ post.data }}</small>
+                    </div>
+                    </div>
+                </a>
+                {% endif %}  
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row pt-4">
+            <div class="col-12">
+                <nav aria-label="Standard">
+                    <ul class="pagination justify-content-center">
+                        {% if blogpages.has_previous %}
+                            <li class="page-item"><a class="page-link" href="?page={{ blogpages.previous_page_number }}"><i class="fa fa-arrow-left" aria-hidden="true"></i></a></li>
+                        {% endif %}
+        
+                        {% for i in blogpages.paginator.page_range %}
+                            <li class="page-item {% if blogpages.number == i %}active{% endif %}">
+                                <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                            </li>
+                        {% endfor %}
+        
+                        {% if blogpages.has_next %}
+                            <li class="page-item"><a class="page-link" href="?page={{ blogpages.next_page_number }}"><i class="fa fa-arrow-right" aria-hidden="true"></i></a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
+{% endblock %}

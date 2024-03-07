@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags %}
+{% block content %}
+<style>
+
+    .btn-gradient{
+        padding: 5px 20px 5px 20px;
+        background: linear-gradient(to right, rgb(50, 100, 109) 10%, rgb(25, 59, 66) 30%,rgba(17,37,41) 100%);
+    }
+
+    table{
+        caption-side: top;
+        border-collapse: separate;
+        border-spacing: 5px 5px;
+    }
+    tr, th{
+        border: 2px solid #fff;
+        border-width: medium;
+    }
+    th{
+        width: 30.3%;
+    }
+    .table-bordered>:not(caption)>*>* {
+        border-width: 1px 1px;
+    }
+
+    .bang-dark tr, .bang-dark th{
+        border: 2px solid #000000;
+    }
+
+    @media (max-width: 600px){
+        .text-sm-x{
+            font-size: 15px;
+        }
+    }
+
+</style>
+<div style="background-color: #000000;">
+    <div class="container marketing text-light" >
+        <div class="row featurette">
+            <div class="col-lg-6 col-sm-12 p-4">
+                <h1 class="display-3" style="font-weight: bold;">DỊCH VỤ</h1>
+            </div>
+            <div class="col-lg-6 col-sm-12 p-lg-4 p-sm-0">
+                <div class="row text-sm-start pt-lg-5 pb-4">
+                    <a class="col-4 text-center text-sm p-sm-0 nav-link text-sm-x" href="#advise" style="color: rgb(250, 0, 0);">MIỄN PHÍ TƯ VẤN</a>
+                    <a class="col-2 text-center text-sm p-sm-0 nav-link text-sm-x" href="#design">THIẾT KẾ</a>
+                    <a class="col-3 text-center text-sm p-sm-0 nav-link text-sm-x" href="#construction">THI CÔNG</a>
+                    <a class="col-3 text-center text-sm p-sm-0 nav-link text-sm-x" href="#produce">SẢN XUẤT</a>
+                </div>
+            </div>
+          </div>
+    </div>
+</div>
+<div style="background-color: #e6e7e8;" id="advise">
+    <div class="container marketing pt-5 pb-5" >
+        <div class="row featurette">
+            <div class="col-lg-6 col-sm-12 p-4">
+                <h2 class="display-3 mb-3" style="font-weight: bold;">MIỄN PHÍ TƯ VẤN</h2>
+                <p class="lead text-justify mb-4" style="text-align: justify;">UP INTERIOR luôn xem tư vấn là cơ sở để hiểu rõ nhu cầu của khách hàng, từ đó đưa ra các giải pháp hiệu quả nhất. Dịch vụ tư vấn của UP INTERIOR không chỉ dừng lại ở khảo sát kỹ thuật mà còn bao gồm các khía cạnh khác như tài chính, khả năng sử dụng, mở rộng, thẩm mỹ, môi trường, tính vững bền. Các giải pháp của ARTIUS luôn chính xác, trung thực, chuyên nghiệp và sát thực với nhu cầu của khách hàng.</p>
+                <img width="100%" style="border-radius: 20px;" src="{% static 'images/home/hinh-13.jpg' %}">
+            </div>
+            <div class="col-lg-6 col-sm-12 p-4 text-center">
+                <div class="card p-3 p-lg-5 pt-5 pb-5" style="border-radius: 25px;">
+                    <h2 class="mb-3" style="color: rgb(2, 78, 105);">KẾT NỐI NGAY VỚI UP INTERIOR</h2>
+                    <h2 class="fw-bolder" style="color: rgb(2, 78, 105);">ĐỂ ĐƯỢC TƯ VẤN MIỄN PHÍ</h2>
+                    <p>Chúng tôi luôn sẳng sàng lắng nghe và đưa ra giải pháp phù hợp nhất cho vấn đề của bạn</p>
+                    <form class="needs-validation" novalidate method="POST">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <input type="text" name="name" class="form-control rounded-pill p-3" style="color: #024e69;" placeholder="Họ và tên*" required>
+                            </div>
+                            <div class="col-12">
+                                <input type="email" name="email" class="form-control rounded-pill p-3" placeholder="Địa chỉ Email*">
+                            </div>
+                            <div class="col-12">
+                                <input type="text" name="phone_number" class="form-control rounded-pill p-3" placeholder="Số điện thoại*" required>
+                            </div>
+                            <div class="col-12">
+                                <select name="service_type" class="form-select rounded-pill p-3" required>
+                                    <option value="">Yêu cầu dịch vụ</option>
+                                    <option>Tư vấn thiết kế nội thất</option>
+                                    <option>Tư vấn thiết kế công trình nhà ở</option>
+                                    <option>Tư vấn thiết kế văn phòng công ty</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <textarea name="request_content" class="form-control rounded-4" placeholder="Nội dung yêu cầu" rows="3"></textarea>
+                            </div>
+                            <div class="col-12 mt-4">
+                                <button class="w-50 w-md-60 btn btn-gradient text-light btn-lg rounded-pill" type="submit">GỬI YÊU CẦU</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="background-color: #000000;" id="design">
+    <div class="container marketing text-light pt-5 pb-5" >
+        <div class="row featurette">
+            <div class="col-lg-6 col-sm-12 p-4">
+                <h2 class="display-2" style="font-weight: bold;">THIẾT KẾ</h2>
+                <p class="lead text-justify mb-3" style="text-align: justify;">Với UP INTERIOR, thiết kế không chỉ là một quá trình sáng tạo và nghiên cứu, đòi hỏi sự tỉ mỉ và chu đáo của người thiết kế. Ngoài bố trí không gian một cách hợp lý, mỗi thiết kế còn phải mang dấu ấn riêng, có một không gian sống tiện nghi, mang dấu ấn của từng khách hàng và đáp ứng được nhu cầu sinh hoạt.</p>
+                <h4>TẠI SAO NÊN CHỌN UP INTERTIOR thiết kế?</h4>
+                <table class="table table-bordered text-center text-light">
+                    <tr>
+                        <th>Thiết kế thẩm mỹ, độc đáo</th>
+                        <th>Tối ưu công năng và diện tích</th>
+                        <th>Đảm bảo kết cấu chất lượng</th>
+                    </tr>
+                    <tr>
+                        <th>Hồ sơ thiết kế đầy đủ</th>
+                        <th>Kiếm soát tốt chi phí</th>
+                        <th>Giấy phép đầy đủ và nhanh chóng</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-lg-6 col-sm-12 p-4">
+                <a class="nav-link mb-5" style="float: right;" href="{{ url_new_index.url }}">Xem thêm</a>
+                <img width="100%" style="border-radius: 20px;" src="{% static 'images/home/Untitled-1-19.jpg' %}">
+            </div>
+          </div>
+    </div>
+</div>
+<div style="background-color: #e6e7e8;" id="construction">
+    <div class="container marketing pt-5 pb-5" >
+        <div class="row featurette">
+            <div class="col-lg-6 col-sm-12 p-4">
+                <h2 class="display-2" style="font-weight: bold;">THI CÔNG</h2>
+                <p class="lead text-justify mb-3" style="text-align: justify;">UP INTERIOR sẽ giúp bạn biến thiết kế thành hiện thực. Sau khi đã thống nhất được thiết kế, đội ngũ kĩ sư, quản lý công trình và giám sát cùng lực lượng công nhân kĩ thuật lành nghề của chúng tôi sẽ tư vấn các phương án thi công phù hợp nhất với nhu cầu và ngân sách của bạn. Chúng tôi cam kết mang lại kết quả công trình cao nhất về mặt chất lượng, hiệu quả chi phí, tính năng, tiến độ và an toàn trong thi công.</p>
+                <h4>5 LÝ DO CHỌN UP INTERTIOR</h4>
+                <table class="table table-bordered text-center bang-dark">
+                    <tr>
+                        <th>Sở hữu ngôi nhà hoàn hảo</th>
+                        <th>Tiết kiệm thời gian</th>
+                        <th>Tiết kiệm chi phí</th>
+                    </tr>
+                    <tr>
+                        <th>Dễ dàng kiểm soát chất lượng</th>
+                        <th>Giảm thiểu rủi ro</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-lg-6 col-sm-12 p-4">
+                <a class="nav-link mb-5" style="float: right;" href="{{ url_blog_index.url }}">Xem thêm</a>
+                <img width="100%" style="border-radius: 20px;" src="{% static 'images/home/Untitled-1-20.jpg' %}">
+            </div>
+          </div>
+    </div>
+</div>
+<div style="background-color: #000000;" id="produce">
+    <div class="container marketing text-light pt-5 pb-5" >
+        <div class="row featurette">
+            <div class="col-lg-6 col-sm-12 p-4">
+                <h2 class="display-2" style="font-weight: bold;">SẢN XUẤT</h2>
+                <p class="lead text-justify mb-3" style="text-align: justify;">Đối với UP INTERIOR: Việc tự sản xuất và cung cấp vật dụng, thiết bị nội thất giúp UP INTERIOR kiểm soát chất lượng sản phẩm và tiến độ thi công. UP INTERIOR có thể đảm bảo rằng các sản phẩm nội thất được sản xuất theo đúng thiết kế và yêu cầu của khách hàng. Ngoài ra, việc tự sản xuất giúp UP INTERIOR tiết kiệm chi phí và tăng tính cạnh tranh.</p>
+                <p class="lead text-justify mb-3" style="text-align: justify;">Đối với khách hàng: Việc UP INTERIOR là nhà sản xuất, giúp khách hàng có nhiều lựa chọn hơn về mẫu mã, chất liệu và giá cả. Khách hàng cũng có thể yên tâm về chất lượng sản phẩm và dịch vụ của UP INTERIOR.</p>
+            </div>
+            <div class="col-lg-6 col-sm-12 p-4">
+                <a class="nav-link mb-5" style="float: right;" href="{{ url_product_index.url }}">Xem thêm</a>
+                <img width="100%" style="border-radius: 20px;" src="{% static 'images/home/Untitled-1-21.jpg' %}">
+            </div>
+          </div>
+    </div>
+</div>
+{% endblock %}

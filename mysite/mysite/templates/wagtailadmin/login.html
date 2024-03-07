@@ -1,0 +1,13 @@
+{% extends "wagtailadmin/login.html" %}
+{% load static %}
+{% block extra_css %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/icon_UP.svg' %}"/>
+{% endblock %}
+{% block branding_login %}
+Đăng nhập vào<br>UP INTERIOR
+{% endblock %}
+{% block branding_logo %}
+<div style="text-align: center; padding-top: 20px;">
+    <img src="{% static 'images/UP 3-03.svg' %}" alt="Custom Project" width="120" />
+</div>
+{% endblock %}

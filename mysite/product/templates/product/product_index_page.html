@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% block content %}
+<style>
+
+    .btn-gradient{
+        padding: 5px 20px 5px 20px;
+        background: linear-gradient(to right, rgb(50, 100, 109) 10%, rgb(25, 59, 66) 30%,rgba(17,37,41) 100%);
+    }
+    .btn-gradient-small{
+        padding: 5px 10px 5px 10px;
+        background: linear-gradient(to right, rgb(50, 100, 109) 10%, rgb(25, 59, 66) 30%,rgba(17,37,41) 100%);
+    }
+    .text-truncate-1 {
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+      
+    table{
+        caption-side: top;
+        border-collapse: separate;
+        border-spacing: 5px 5px;
+    }
+    tr, th{
+        border: 2px solid #fff;
+        border-width: medium;
+    }
+    th{
+        width: 30.3%;
+    }
+    .table-bordered>:not(caption)>*>* {
+        border-width: 1px 1px;
+    }
+
+    .bang-dark tr, .bang-dark th{
+        border: 2px solid #000000;
+    }
+    .card-hover{
+        .flex-column{
+            margin-top: 200px !important;
+        }
+        .container{
+            display: none;
+        }
+    }
+    .card-hover:hover{
+        background-color: #4d4d4dcd;
+        .flex-column{
+            color: #fff;
+        }
+        .container{
+            display: block;
+        }
+        .flex-column{
+            margin-top: 25px !important;
+        }
+        .flex-column .p-none {
+            display: block;
+        }
+        
+    }
+    .card-hover .flex-column{
+        color: #fff;
+        .p-none {
+            display: none;
+        }
+    }
+    .card-hover .flex-column:hover{
+        color: #fff;
+    }
+    @media (max-width: 600px){
+        .text-sm-x{
+            font-size: 15px;
+        }
+    }
+
+</style>
+<div style="background-color: #000000;">
+    <div class="container marketing text-light" >
+        <div class="row featurette">
+            <div class="col-12 p-5">
+                <h1 class="display-3" style="font-weight: bold;">SẢN PHẨM</h1>
+            </div>
+          </div>
+    </div>
+</div>
+
+<div class="untree_co-section product-section pt-6 pb-5">
+    <div class="container">
+        <div class="row">
+            {% for post in blogpages %}
+            <div class="col-12 col-md-4 col-lg-3 mb-5">
+                <a class="product-item" href="{% pageurl post %}">
+                    {% image post.specific.image width-400 as my_image %}
+                    <img src="{{ my_image.url }}" class="img-fluid product-thumbnail" alt="{{ post.title }}">
+                    <h3 class="product-title">{{ post.title }}</h3>
+
+                    <span class="icon-cross">
+                        <img src="{% static 'images/test/cross.svg' %}" class="img-fluid">
+                    </span>
+                </a>
+            </div> 
+            {% endfor %}
+        </div>
+        <div class="row pt-4">
+            <div class="col-12">
+                <nav aria-label="Standard">
+                    <ul class="pagination justify-content-center">
+                        {% if blogpages.has_previous %}
+                            <li class="page-item"><a class="page-link" href="?page={{ blogpages.previous_page_number }}">&lt;</a></li>
+                        {% endif %}
+        
+                        {% for i in blogpages.paginator.page_range %}
+                            <li class="page-item {% if blogpages.number == i %}active{% endif %}">
+                                <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                            </li>
+                        {% endfor %}
+        
+                        {% if blogpages.has_next %}
+                            <li class="page-item"><a class="page-link" href="?page={{ blogpages.next_page_number }}">&gt;</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+          
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags %}
+{% block content %}
+<style>
+
+    .btn-gradient{
+        padding: 5px 20px 5px 20px;
+        background: linear-gradient(to right, rgb(50, 100, 109) 10%, rgb(25, 59, 66) 30%,rgba(17,37,41) 100%);
+    }
+    .btn-red{
+        padding: 5px 20px 5px 20px;
+        background: linear-gradient(to right, rgb(228, 19, 19) 10%, rgb(189, 0, 0) 30%,rgb(106, 32, 10) 100%);
+    }
+    table{
+        caption-side: top;
+        border-collapse: separate;
+        border-spacing: 5px 5px;
+    }
+    tr, th{
+        border: 2px solid #fff;
+        border-width: medium;
+    }
+    th{
+        width: 30.3%;
+    }
+    .table-bordered>:not(caption)>*>* {
+        border-width: 1px 1px;
+    }
+
+    .bang-dark tr, .bang-dark th{
+        border: 2px solid #000000;
+    }
+
+    @media (max-width: 600px){
+        .text-sm-x{
+            font-size: 15px;
+        }
+    }
+
+</style>
+<div style="background-color: #000000;">
+    <div class="container marketing text-light" >
+        <div class="row featurette">
+            <div class="col-12 p-5">
+                <h1 class="display-3" style="font-weight: bold;">CỬA HÀNG</h1>
+            </div>
+          </div>
+    </div>
+</div>
+<div style="background-image: url({% static 'images/home/hinh-24.jpg' %}); background-size: cover;">
+    <div class="container marketing pt-5 pb-5" >
+        <div class="row featurette">
+            <div class="col-lg-6 col-sm-12">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d323.20293831427205!2d106.6885253342534!3d10.8057570117361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528c4a83f459f%3A0xf0dea03ac1b035c8!2zTGFtIFPGoW4sIFBoxrDhu51uZyA2LCBCw6xuaCBUaOG6oW5oLCBUaMOgbmggcGjhu5EgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1702246426358!5m2!1svi!2s" 
+                width="100%" height="450" style="border-radius: 12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="col-lg-6 col-sm-12 pb-4 pb-lg-0 text-light">
+                <h3 class="contact-us__header card-title mb-3">VĂN PHÒNG</h3>
+                <div class="contact-us__address">
+                    <p>Địa chỉ: 48/14 Lam Sơn, Phường 6, Quận Bình Thạnh, TP.Hồ Chí Minh</p>
+                    <p><strong>Giờ mở cửa: </strong>Thứ Hai-Thứ Bảy 07:00 sáng - 17:00 chiều</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container marketing pt-5 pb-5" >
+        <div class="row featurette">
+            <div class="col-lg-6 col-sm-12">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.903077035914!2d106.68859277766929!3d10.89497025699059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d7c659e94c9d%3A0xb9dd77be3d57f862!2zNTMgVEwgNTEsIFRo4bqhbmggTOG7mWMsIFF14bqtbiAxMiwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1702246593832!5m2!1svi!2s"
+                width="100%" height="450" style="border-radius: 12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="col-lg-6 col-sm-12 pb-4 pb-lg-0 text-light">
+                <h3 class="contact-us__header card-title mb-3">NHÀ XƯỞNG</h3>
+                <div class="contact-us__address">
+                    <p>Địa chỉ: 53 đường TL 51, Thạnh Lộc, Q12, Thành Phố Hồ Chí Minh</p>
+                    <p><strong>Giờ mở cửa: </strong>Thứ Hai-Thứ Bảy 07:00 sáng - 17:00 chiều</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

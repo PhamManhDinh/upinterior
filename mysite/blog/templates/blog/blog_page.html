@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags %}
+{% wagtail_site as current_site %}
+{% block content %}
+<style>
+
+    .btn-gradient{
+        padding: 5px 20px 5px 20px;
+        background: linear-gradient(to right, rgb(50, 100, 109) 10%, rgb(25, 59, 66) 30%,rgba(17,37,41) 100%);
+    }
+    .btn-red{
+        padding: 5px 20px 5px 20px;
+        background: linear-gradient(to right, rgb(228, 19, 19) 10%, rgb(189, 0, 0) 30%,rgb(106, 32, 10) 100%);
+    }
+    table{
+        caption-side: top;
+        border-collapse: separate;
+        border-spacing: 5px 5px;
+    }
+    tr, th{
+        border: 2px solid #fff;
+        border-width: medium;
+    }
+    th{
+        width: 30.3%;
+    }
+    .table-bordered>:not(caption)>*>* {
+        border-width: 1px 1px;
+    }
+
+    .bang-dark tr, .bang-dark th{
+        border: 2px solid #000000;
+    }
+
+    @media (max-width: 600px){
+        .text-sm-x{
+            font-size: 15px;
+        }
+    }
+    @media (min-width: 992px){
+        .p-lg-5{
+            padding: 5rem !important;
+        }
+    }
+</style>
+<div style="background-color: #000000;">
+    <div class="container marketing text-light" >
+        <div class="row featurette">
+            <div class="col-12 mt-5 p-sm-5">
+                <h4 class="display-5" style="font-weight: bold;">{{ page.title }}</h4>
+                <p class="meta">{{ page.date }}</p>
+            </div>
+          </div>
+    </div>
+</div>
+<div style="background-color: #000000;">
+    <div class="container" id="custom-cards">    
+        <div class="row">
+            <div class="card bd-black border-5 p-lg-5 p-sm-1 pt-3">
+                <article class="blog-post">
+                    {{ page.body|richtext }}
+                </article>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,192 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags %}
+{% block content %}
+<style>
+
+    .btn-gradient{
+        padding: 5px 20px 5px 20px;
+        background: linear-gradient(to right, rgb(50, 100, 109) 10%, rgb(25, 59, 66) 30%,rgba(17,37,41) 100%);
+    }
+    .btn-red{
+        padding: 5px 20px 5px 20px;
+        background: linear-gradient(to right, rgb(228, 19, 19) 10%, rgb(189, 0, 0) 30%,rgb(106, 32, 10) 100%);
+    }
+    table{
+        caption-side: top;
+        border-collapse: separate;
+        border-spacing: 5px 5px;
+    }
+    tr, th{
+        border: 2px solid #fff;
+        border-width: medium;
+    }
+    th{
+        width: 30.3%;
+    }
+    .table-bordered>:not(caption)>*>* {
+        border-width: 1px 1px;
+    }
+
+    .bang-dark tr, .bang-dark th{
+        border: 2px solid #000000;
+    }
+
+    .card-hover:hover{
+        background-color: #4d4d4db9;
+    }
+
+    @media (max-width: 600px){
+        .text-sm-x{
+            font-size: 15px;
+        }
+    }
+
+</style>
+<div style="background-color: #000000;">
+    <div class="container marketing text-light" >
+        <div class="row featurette">
+            <div class="col-12 p-5">
+                <h1 class="display-3" style="font-weight: bold;">TIN TỨC VÀ KIẾN THỨC</h1>
+            </div>
+          </div>
+    </div>
+</div>
+<div>
+    <div class="container px-2 py-2" id="custom-cards">    
+      <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+          <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Khám phá những nét đẹp</h1>
+            <p class="lead text-muted">Trang tin tức và kiến thức giúp bạn đọc, khách hàng am hiểu nhiều hơn kiến thức đẹp, tạo sự lựa chọn nét đẹp tốt nhất cho cá tính bản thân.</p>
+            <p>
+              <a href="#" class="btn btn-primary my-2">Tìm hiểu về chúng tôi</a>
+              <a href="#" class="btn btn-secondary my-2">Liên hệ để được tư vấn</a>
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+</div>
+<div style="background-color: #ffffff;">
+    <div class="container marketing pb-5" >
+        <h2 class="pb-2 border-bottom display-5" style="font-family: 'Beautique Display', sans-serif;">Tin tức và kiến thức</h2><br>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col">
+              <div class="card shadow-sm">
+                <img class="bd-placeholder-img card-img-top"  width="100%" height="100%" src="{% static 'images/home/Hinh cong trinh thu nho-04.jpg' %}">    
+                <div class="card-body">
+                    <h4>Nội thất phương Đông</h4>
+                  <p class="card-text">Đội ngũ thiết kế và xây dựng đã cùng anh Nguyễn Quang Hưng (gia chủ) hợp tác làm việc với nhau trong 2 tháng ...</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <small class="text-muted">4 tháng trước</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card shadow-sm">
+                <img class="bd-placeholder-img card-img-top" width="100%" height="100%" src="{% static 'images/home/Hinh cong trinh thu nho-05.jpg' %}">
+    
+                <div class="card-body">
+                    <h4>MIRABI COFFEE</h4>
+                  <p class="card-text">MIRABI COFFEE. Cà phê viên espresso là loại cà phê được sử dụng phương pháp công nghệ sấy thăng hoa tiên tiến nhất hiện nay về chế biến thực phẩm sau...</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <small class="text-muted">5 tháng trước</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card shadow-sm">
+                <img class="bd-placeholder-img card-img-top"  width="100%" height="100%" src="{% static 'images/home/Hinh cong trinh thu nho-06.jpg' %}">
+    
+                <div class="card-body">
+                    <h4>Quán ăn NguRu</h4>
+                  <p class="card-text">Là nhà hàng Nhật Bản nổi tiếng ở Sài Gòn với các món ăn truyền thống của đất nước mặt trời mọc cùng không gian ấm ...</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <small class="text-muted">8 tháng trước</small>
+                  </div>
+                </div>
+              </div>
+            </div>  
+            <div class="col">
+              <div class="card shadow-sm">
+                <img class="bd-placeholder-img card-img-top"  width="100%" height="100%" src="{% static 'images/home/Hinh cong trinh thu nho-07.jpg' %}">
+    
+                <div class="card-body">
+                    <h4>Thiết kế nội thất khu biệt thự The Rivus Eliesaab</h4>
+                  <p class="card-text">Chủ đầu tư: Công Ty Cổ Phần Phát triển Bất động sản Masterise Homes</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <small class="text-muted">8 tháng trước</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card shadow-sm">
+                <img class="bd-placeholder-img card-img-top"  width="100%" height="100%" src="{% static 'images/home/Hinh cong trinh thu nho-08.jpg' %}">
+    
+                <div class="card-body">
+                    <h4>Biệt thự Ba Son – Đông Tăng Long Hưng Phúc quận 9</h4>
+                  <p class="card-text">Chủ đầu tư: Công Ty Cổ Phần Phát Triển Đô Thị Ba Son</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <small class="text-muted">3 tháng trước</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card shadow-sm">
+                <img cclass="bd-placeholder-img card-img-top"  width="100%" height="100%" src="{% static 'images/home/Hinh cong trinh thu nho-09.jpg' %}">
+    
+                <div class="card-body">
+                    <h4>Biệt thự Valora Fuji Quận 9</h4>
+                  <p class="card-text">Chủ đầu tư: Công ty Cổ phần Đầu tư Nam Long; Địa chỉ: Quận 9 - TP. Thủ Đức, TP. Hồ Chí Minh</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <small class="text-muted">4 tháng trước</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img class="bd-placeholder-img card-img-top"  width="100%" height="100%" src="{% static 'images/home/Hinh cong trinh thu nho-11.jpg' %}">      
+                  <div class="card-body">
+                      <h4>Thiết kế khu nhà ở Bình Thuận</h4>
+                    <p class="card-text">Thiết kế nội thất mô tả một nhóm các dự án khác nhau liên quan đến sự chuyển đổi không gian nội thất thành các thiết lập hiệu quả cho phạm vi các hoạt động của con người được xảy ra ở đó.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <small class="text-muted">1 Tháng trước</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card shadow-sm">
+                    <img class="bd-placeholder-img card-img-top"  width="100%" height="100%" src="{% static 'images/home/Hinh cong trinh thu nho-12.jpg' %}">
+      
+                  <div class="card-body">
+                      <h4>Thiết kế nội thất Chung cư</h4>
+                    <p class="card-text">Thiết kế nội thất là việc tổ chức, bố trí, sắp xếp các vật thể, đồ đạc, không gian tạo thành một tổng thể thống nhất đáp ứng công năng sử dụng ...</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <small class="text-muted">2 Tháng trước</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="row pt-4">
+            <div class="col-12">
+                <nav aria-label="Standard">
+                    <ul class="pagination justify-content-center">
+                      <li class="page-item"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+</div>
+{% endblock %}

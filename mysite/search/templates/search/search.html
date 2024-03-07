@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags %}
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+{% block body_class %}template-searchresults{% endblock %}
+
+{% block title %}Tìm kiếm{% endblock %}
+
+{% block content %}
+<style>
+    .a-search{
+        text-decoration: none;
+        color: #000000;
+    }
+    .a-search:hover strong{
+        color: #0088ff;
+    }
+</style>
+
+<div class="container mt-2">
+    <h1>Tìm kiếm</h1>
+
+    <form action="{% url 'search' %}" class="input-group" method="get">
+        <input type="text" class="form-control" name="query"{% if search_query %} value="{{ search_query }}"{% endif %}>
+        <!--<input type="submit" value="Tìm kiếm" class="btn btn-outline-primary">-->
+        <button type="submit" class="btn btn-primary" data-mdb-ripple-init>
+            <i class="fa fa-search"></i>
+        </button>
+    </form>
+    <div class="my-3 p-3 bg-body rounded shadow-sm">
+        <h6 class="border-bottom pb-2 mb-0">Kết quả tìm kiếm</h6>
+        {% if search_results %}
+        {% for result in search_results %}
+        <div class="d-flex text-body-secondary pt-3">
+          <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+          <img src="{{ result.image.file.url }}">
+          <p class="pb-3 mb-0 small lh-sm border-bottom">
+            <a href="{% pageurl result %}" class="a-search" ><strong class="d-block text-gray-dark">{{ result }}</strong></a>
+            {% if result.search_description %}
+            {{ result.search_description }}
+            {% endif %}
+          </p>
+        </div>
+        {% endfor %}
+        {% if search_results.has_previous %}
+        <a href="{% url 'search' %}?query={{ search_query|urlencode }}&amp;page={{ search_results.previous_page_number }}"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+        {% endif %}
+
+        {% if search_results.has_next %}
+        <a href="{% url 'search' %}?query={{ search_query|urlencode }}&amp;page={{ search_results.next_page_number }}"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+        {% endif %}
+        {% elif search_query %}
+        Không có kết quả nào được tìm thấy
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

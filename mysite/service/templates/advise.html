@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags %}
+{% block title %}Tư vấn{% endblock %}
+{% block content %}
+<style>
+
+    .btn-gradient{
+        padding: 5px 20px 5px 20px;
+        background: linear-gradient(to right, rgb(50, 100, 109) 10%, rgb(25, 59, 66) 30%,rgba(17,37,41) 100%);
+    }
+    .btn-red{
+        padding: 5px 20px 5px 20px;
+        background: linear-gradient(to right, rgb(228, 19, 19) 10%, rgb(189, 0, 0) 30%,rgb(106, 32, 10) 100%);
+    }
+    table{
+        caption-side: top;
+        border-collapse: separate;
+        border-spacing: 5px 5px;
+    }
+    tr, th{
+        border: 2px solid #fff;
+        border-width: medium;
+    }
+    th{
+        width: 30.3%;
+    }
+    .table-bordered>:not(caption)>*>* {
+        border-width: 1px 1px;
+    }
+
+    .bang-dark tr, .bang-dark th{
+        border: 2px solid #000000;
+    }
+
+    @media (max-width: 600px){
+        .text-sm-x{
+            font-size: 15px;
+        }
+    }
+
+</style>
+<div style="background-color: #000000;">
+    <div class="container marketing text-light" >
+        <div class="row featurette">
+            <div class="col-12 p-5">
+                <h1 class="display-3" style="font-weight: bold;">TƯ VẤN</h1>
+            </div>
+          </div>
+    </div>
+</div>
+<div style="background-image: url({% static 'images/home/hinh-24.jpg' %}); background-size: cover;">
+    <div class="container marketing pt-5 pb-5" >
+        <div class="row featurette">
+            <div class="col-lg-6 col-sm-12 p-4 text-center">
+                <img width="100%" style="border-radius: 20px;" src="{% static 'images/home/giảm 50-22.png' %}">
+                <button class="btn-red rounded-pill text-light"><h5 class="m-0"><img src="{% static 'images/phone-call-01.svg' %}"> 096 281 0468</h5></button>
+            </div>
+            <div class="col-lg-6 col-sm-12 p-4 text-center">
+                <div class="card p-3 p-lg-5 pt-5 pb-5" style="border-radius: 25px;">
+                    <h2 class="mb-3" style="color: rgb(2, 78, 105);">KẾT NỐI NGAY VỚI UP INTERIOR</h2>
+                    <h2 class="fw-bolder" style="color: rgb(2, 78, 105);">ĐỂ ĐƯỢC TƯ VẤN MIỄN PHÍ</h2>
+                    <p>Chúng tôi luôn sẳng sàng lắng nghe và đưa ra giải pháp phù hợp nhất cho vấn đề của bạn</p>
+                    <form class="needs-validation" novalidate action="{% url 'advise' %}" method="post">
+                        {% csrf_token %}
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <input type="text" class="form-control rounded-pill p-3" style="color: #024e69;" id="username" name="username" placeholder="Họ và tên*" required>
+                            </div>
+                            <div class="col-12">
+                                <input type="email" class="form-control rounded-pill p-3" id="email" name="email" placeholder="Địa chỉ Email*" required>
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="form-control rounded-pill p-3" id="number_phone" name="number_phone" placeholder="Số điện thoại*" required>
+                            </div>
+                            <div class="col-12">
+                                <select class="form-select rounded-pill p-3" id="support" name="support" required>
+                                    <option value="">Yêu cầu dịch vụ</option>
+                                    <option>Tư vấn thiết kế nội thất</option>
+                                    <option>Tư vấn thiết kế công trình nhà ở</option>
+                                    <option>Tư vấn thiết kế văn phòng công ty</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control rounded-4" id="message" name="message" placeholder="Nội dung yêu cầu" rows="3"></textarea>
+                            </div>
+                            <div class="col-12 mt-4">
+                                <button class="w-50 w-md-60 btn btn-gradient text-light btn-lg rounded-pill" type="submit">GỬI YÊU CẦU</button>
+                            </div>
+                        </div>
+                    </form>
+                    
+                    <!-- Django messages -->
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

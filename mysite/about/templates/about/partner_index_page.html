@@ -1,0 +1,224 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags %}
+{% block content %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<link href="{% static 'css/tiny-slider.css' %}" rel="stylesheet">
+<style>
+    .testimonial-slider-wrap .tns-nav button {
+        background: none;
+        border: none;
+        display: inline-block;
+        position: relative;
+        width: 0 !important;
+        height: 7px !important;
+        margin: 10px;
+    }
+    
+</style>
+<!-- Start Why Choose Us Section -->
+<div class="hero">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-lg-5">
+                <div class="intro-excerpt">
+                    <h1>{{ page.title }}</h1>
+                    <p class="mb-4">{{ page.intro|richtext }}</p>
+                    <p><a href="{% url 'advise' %}" class="btn btn-secondary me-2">Liên hệ ngay bây giờ</a></p>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="hero-img-wrap">
+                    <img src="{{ page.image.file.url }}" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="why-choose-section">
+    <div class="container">
+        
+        
+        <div class="row my-5">
+            <div class="col-6 col-md-6 col-lg-3 mb-1">
+                <div class="feature">
+                    <div class="icon">
+                        <img src="{% static 'images/test/truck.svg' %}" alt="Image" class="imf-fluid">
+                    </div>
+                    <h3>Thi công</h3>
+                    <p>Chúng tôi cam kết mang lại kết quả công trình cao nhất về mặt chất lượng, hiệu quả chi phí, tính năng, tiến độ và an toàn trong thi công.</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-6 col-lg-3 mb-1">
+                <div class="feature">
+                    <div class="icon">
+                        <img src="{% static 'images/test/bag.svg' %}" alt="Image" class="imf-fluid">
+                    </div>
+                    <h3>Sản xuất</h3>
+                    <p>Đối với UP INTERIOR: Việc tự sản xuất và cung cấp vật dụng, thiết bị nội thất giúp UP INTERIOR kiểm soát chất lượng sản phẩm và tiến độ thi công.</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-6 col-lg-3 mb-1">
+                <div class="feature">
+                    <div class="icon">
+                        <img src="{% static 'images/test/support.svg' %}" alt="Image" class="imf-fluid">
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>UP INTERIOR luôn xem tư vấn là cơ sở để hiểu rõ nhu cầu của khách hàng, từ đó đưa ra các giải pháp hiệu quả nhất.</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-6 col-lg-3 mb-1">
+                <div class="feature">
+                    <div class="icon">
+                        <img src="{% static 'images/test/return.svg' %}" alt="Image" class="imf-fluid">
+                    </div>
+                    <h3>Thiết kế</h3>
+                    <p>Với UP INTERIOR, thiết kế không chỉ là một quá trình sáng tạo và nghiên cứu, đòi hỏi sự tỉ mỉ và chu đáo của người thiết kế.</p>
+                </div>
+            </div>
+
+        </div>
+    
+    </div>
+</div>
+<!-- End Why Choose Us Section -->
+<div style="background-color: #e6e7e8;" class="mb-5">
+    <div class="container marketing pt-5 pb-5" >
+        <div class="row featurette text-center">
+            <div class="col-12">
+                <h1 class="display-4 mb-4" style="font-family: 'Beautique Display', sans-serif;">Khách Hàng Và Đối Tác</h1>
+            </div>
+            <div class="col-6 col-md-2 p-1 text-center">
+                <img width="100%" style="border-radius: 10px;" src="{% static 'images/home/logo_kh/logo doi tac-01.jpg' %}">
+            </div>
+            <div class="col-6 col-md-2 p-1 text-center">
+                <img width="100%" style="border-radius: 10px;" src="{% static 'images/home/logo_kh/logo doi tac-02.jpg' %}">
+            </div>
+            <div class="col-6 col-md-2 p-1 text-center">
+                <img width="100%" style="border-radius: 10px;" src="{% static 'images/home/logo_kh/logo doi tac-03.jpg' %}">
+            </div>
+            <div class="col-6 col-md-2 p-1 text-center">
+                <img width="100%" style="border-radius: 10px;" src="{% static 'images/home/logo_kh/logo doi tac-04.jpg' %}">
+            </div>
+            <div class="col-6 col-md-2 p-1 text-center">
+                <img width="100%" style="border-radius: 10px;" src="{% static 'images/home/logo_kh/logo doi tac-05.jpg' %}">
+            </div>
+            <div class="col-6 col-md-2 p-1 text-center">
+                <img width="100%" style="border-radius: 10px;" src="{% static 'images/home/logo_kh/logo doi tac-06.jpg' %}">
+            </div>
+            <div class="col-6 col-md-2 p-1 text-center">
+                <img width="100%" style="border-radius: 10px;" src="{% static 'images/home/logo_kh/logo doi tac-07.jpg' %}">
+            </div>
+            <div class="col-6 col-md-2 p-1 text-center">
+                <img width="100%" style="border-radius: 10px;" src="{% static 'images/home/logo_kh/logo doi tac-08.jpg' %}">
+            </div>
+            <div class="col-6 col-md-2 p-1 text-center">
+                <img width="100%" style="border-radius: 10px;" src="{% static 'images/home/logo_kh/logo doi tac-09.jpg' %}">
+            </div>
+            <div class="col-6 col-md-2 p-1 text-center">
+                <img width="100%" style="border-radius: 10px;" src="{% static 'images/home/logo_kh/logo doi tac-10.jpg' %}">
+            </div>
+            <div class="col-6 col-md-2 p-1 text-center">
+                <img width="100%" style="border-radius: 10px;" src="{% static 'images/home/logo_kh/logo doi tac-11.jpg' %}">
+            </div>
+            <div class="col-6 col-md-2 p-1 text-center">
+                <img width="100%" style="border-radius: 10px;" src="{% static 'images/home/logo_kh/logo doi tac-12.jpg' %}">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Start Product Section -->
+<div class="product-section mt-5">
+    <div class="container">
+        <div class="row">
+
+            <!-- Start Column 1 -->
+            <div class="col-md-12 col-lg-3 mb-5 mb-lg-0">
+                <h2 class="mb-4 section-title">Những sản phẩm nội và ngoại thất mới</h2>
+                <p class="mb-4">Tập hợp những sản phẩm nội và ngoại thất độc đáo và chất lượng mà chúng tôi đã sản xuất với tình yêu và tâm huyết.</p>
+                <p><a href="#" class="btn">Khám phá</a></p>
+            </div> 
+            <!-- End Column 1 -->
+
+            <!-- Start Column 2 -->
+            {% for product in newproduct %}
+            <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+                <a class="product-item" href="">
+                    <img src="{{ product.image.file.url }}" alt="{{ product.title }}" class="img-fluid product-thumbnail">
+                    <h3 class="product-title">{{ product.title }}</h3>
+
+                    <span class="icon-cross">
+                        <img src="{% static 'images/test/cross.svg' %}" class="img-fluid">
+                    </span>
+                </a>
+            </div> 
+            {% endfor %}
+            <!-- End Column 2 -->
+
+        </div>
+    </div>
+</div>
+<!-- End Product Section -->
+
+
+
+<!-- Start Testimonial Slider -->
+<div class="testimonial-section before-footer-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 mx-auto text-center">
+                <h2 class="section-title">Cảm nhận của khách hàng</h2>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="testimonial-slider-wrap text-center">
+
+                    <div id="testimonial-nav">
+                        <span class="prev" data-controls="prev"><span class="fa fa-chevron-left"></span></span>
+                        <span class="next" data-controls="next"><span class="fa fa-chevron-right"></span></span>
+                    </div>
+
+                    <div class="testimonial-slider">
+                        {% for item in customer_gallery_images %}
+                        <div class="item">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 mx-auto">
+
+                                    <div class="testimonial-block text-center">
+                                        <blockquote class="mb-5">
+                                            <p>{{ item.caption }}</p>
+                                        </blockquote>
+
+                                        <div class="author-info">
+                                            <div class="author-pic">
+                                                <img src="{{ item.image.file.url }}" alt="{{ item.image.title }}" class="img-fluid">
+                                            </div>
+                                            <h3 class="font-weight-bold">{{ item.image.title }}</h3>
+                                            <span class="position d-block mb-3">{{ item.position }}</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div> 
+                        {% endfor %}
+                        <!-- END item -->
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Testimonial Slider -->
+{% endblock %}
+
+{% block extra_js %}
+
+{% endblock %}

@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags %}
+{% block content %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<link href="{% static 'css/tiny-slider.css' %}" rel="stylesheet">
+<style>
+    .testimonial-slider-wrap .tns-nav button {
+        background: none;
+        border: none;
+        display: inline-block;
+        position: relative;
+        width: 0 !important;
+        height: 7px !important;
+        margin: 10px;
+    }
+    
+</style>
+<div class="hero">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-lg-5">
+                <div class="intro-excerpt">
+                    <h1>{{ page.title }}</h1>
+                    <p class="mb-4">{{ page.intro|richtext }}</p>
+                    <p><a href="{% url 'advise' %}" class="btn btn-secondary me-2">Liên hệ ngay</a><a href="#" class="btn btn-white-outline">Explore</a></p>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="hero-img-wrap">
+                    <img src="{% static 'images/test/couch.png' %}" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Start Why Choose Us Section -->
+<div class="why-choose-section">
+    <div class="container">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-lg-6">
+                <h2 class="section-title">Tại sao chọn chúng tôi?</h2>
+                <p>Tại vì chúng tôi không chỉ mang lại những sản phẩm nội thất độc đáo và chất lượng, mà còn xây dựng nên một mối quan hệ đối tác mang tính nhân văn và đầy sáng tạo, với sứ mệnh khám phá và chia sẻ ý tưởng mới lạ cùng bạn!</p>
+
+                <div class="row my-5">
+                    <div class="col-6 col-md-6">
+                        <div class="feature">
+                            <div class="icon">
+                                <img src="{% static 'images/test/truck.svg' %}" alt="Image" class="imf-fluid">
+                            </div>
+                            <h3>Thi công</h3>
+                            <p>Chúng tôi cam kết mang lại kết quả công trình cao nhất về mặt chất lượng, hiệu quả chi phí, tính năng, tiến độ và an toàn trong thi công.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-6">
+                        <div class="feature">
+                            <div class="icon">
+                                <img src="{% static 'images/test/bag.svg' %}" alt="Image" class="imf-fluid">
+                            </div>
+                            <h3>Sản xuất</h3>
+                            <p>Đối với UP INTERIOR: Việc tự sản xuất và cung cấp vật dụng, thiết bị nội thất giúp UP INTERIOR kiểm soát chất lượng sản phẩm và tiến độ thi công.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-6">
+                        <div class="feature">
+                            <div class="icon">
+                                <img src="{% static 'images/test/support.svg' %}" alt="Image" class="imf-fluid">
+                            </div>
+                            <h3>24/7 Support</h3>
+                            <p>UP INTERIOR luôn xem tư vấn là cơ sở để hiểu rõ nhu cầu của khách hàng, từ đó đưa ra các giải pháp hiệu quả nhất.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-6">
+                        <div class="feature">
+                            <div class="icon">
+                                <img src="{% static 'images/test/return.svg' %}" alt="Image" class="imf-fluid">
+                            </div>
+                            <h3>Thiết kế</h3>
+                            <p>Với UP INTERIOR, thiết kế không chỉ là một quá trình sáng tạo và nghiên cứu, đòi hỏi sự tỉ mỉ và chu đáo của người thiết kế.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="img-wrap">
+                    <img src="{% static 'images/test/why-choose-us-img.jpg' %}" alt="Image" class="img-fluid">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End Why Choose Us Section -->
+
+<!-- Start Team Section -->
+<div class="untree_co-section">
+    <div class="container">
+
+        <div class="row mb-5">
+            <div class="col-lg-5 mx-auto text-center">
+                <h2 class="section-title">Đội của chúng tôi</h2>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <!-- Start Column 1 -->
+            {% for item in page.founder_gallery_images.all %}
+            <div class="col-12 col-md-6 col-lg-3 mb-5 mb-md-0">
+                <img src="{{ item.image.file.url }}" alt="{{ item.title }}" class="img-fluid mb-5">
+                <h3 clas><a href="#"><span class="">{{ item.image.title }}</a></h3>
+                <span class="d-block position mb-4">{{ item.position }}</span>
+                <p>{{ item.caption }}</p>
+            </div> 
+            {% endfor %}
+            <!-- End Column 1 -->
+
+        </div>
+    </div>
+</div>
+<!-- End Team Section -->
+
+
+
+<!-- Start Testimonial Slider -->
+<div class="testimonial-section before-footer-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 mx-auto text-center">
+                <h2 class="section-title">Cảm nhận của khách hàng</h2>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="testimonial-slider-wrap text-center">
+
+                    <div id="testimonial-nav">
+                        <span class="prev" data-controls="prev"><span class="fa fa-chevron-left"></span></span>
+                        <span class="next" data-controls="next"><span class="fa fa-chevron-right"></span></span>
+                    </div>
+
+                    <div class="testimonial-slider">
+                        {% for item in page.customer_gallery_images.all %}
+                        <div class="item">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 mx-auto">
+
+                                    <div class="testimonial-block text-center">
+                                        <blockquote class="mb-5">
+                                            <p>{{ item.caption }}</p>
+                                        </blockquote>
+
+                                        <div class="author-info">
+                                            <div class="author-pic">
+                                                <img src="{{ item.image.file.url }}" alt="{{ item.image.title }}" class="img-fluid">
+                                            </div>
+                                            <h3 class="font-weight-bold">{{ item.image.title }}</h3>
+                                            <span class="position d-block mb-3">{{ item.position }}</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div> 
+                        {% endfor %}
+                        <!-- END item -->
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Testimonial Slider -->
+{% endblock %}

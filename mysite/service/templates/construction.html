@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags %}
+{% block content %}
+<style>
+
+    .btn-gradient{
+        padding: 5px 20px 5px 20px;
+        background: linear-gradient(to right, rgb(50, 100, 109) 10%, rgb(25, 59, 66) 30%,rgba(17,37,41) 100%);
+    }
+    .btn-gradient-small{
+        padding: 5px 10px 5px 10px;
+        background: linear-gradient(to right, rgb(50, 100, 109) 10%, rgb(25, 59, 66) 30%,rgba(17,37,41) 100%);
+    }
+    .text-truncate-1 {
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+      
+    table{
+        caption-side: top;
+        border-collapse: separate;
+        border-spacing: 5px 5px;
+    }
+    tr, th{
+        border: 2px solid #fff;
+        border-width: medium;
+    }
+    th{
+        width: 30.3%;
+    }
+    .table-bordered>:not(caption)>*>* {
+        border-width: 1px 1px;
+    }
+
+    .bang-dark tr, .bang-dark th{
+        border: 2px solid #000000;
+    }
+    .card-hover{
+        .flex-column{
+            margin-top: 200px !important;
+        }
+        .container{
+            display: none;
+        }
+    }
+    .card-hover:hover{
+        background-color: #4d4d4dcd;
+        .flex-column{
+            color: #fff;
+        }
+        .container{
+            display: block;
+        }
+        .flex-column{
+            margin-top: 25px !important;
+        }
+        .flex-column .p-none {
+            display: block;
+        }
+        
+    }
+    .card-hover .flex-column{
+        color: #fff;
+        .p-none {
+            display: none;
+        }
+    }
+    .card-hover .flex-column:hover{
+        color: #fff;
+    }
+    @media (max-width: 600px){
+        .text-sm-x{
+            font-size: 15px;
+        }
+    }
+
+</style>
+<div style="background-color: #000000;">
+    <div class="container marketing text-light" >
+        <div class="row featurette">
+            <div class="col-lg-6 col-sm-12 p-4">
+                <h1 class="display-3" style="font-weight: bold;">CÔNG TRÌNH</h1>
+            </div>
+            <div class="col-lg-6 col-sm-12 p-lg-4 p-sm-0">
+                <div class="row text-sm-start pt-lg-5 pb-4">
+                    <a class="col-1 text-center text-sm p-sm-0 nav-link text-sm-x" href="#section1" style="color: rgb(250, 0, 0);">ALL</a>
+                    <a class="col-3 text-center text-sm p-sm-0 nav-link text-sm-x" href="#section2">KHÔNG GIAN NHÀ Ở</a>
+                    <a class="col-3 text-center text-sm p-sm-0 nav-link text-sm-x" href="#section3">THƯƠNG MẠI</a>
+                    <a class="col-1 text-center text-sm p-sm-0 nav-link text-sm-x" href="#section4">SPA</a>
+                    <a class="col-1 text-center text-sm p-sm-0 nav-link text-sm-x" href="#section4">F&B</a>
+                    <a class="col-3 text-center text-sm p-sm-0 nav-link text-sm-x" href="#section4">VĂN PHÒNG</a>
+                </div>
+            </div>
+          </div>
+    </div>
+</div>
+<div style="background-image: url({% static 'images/home/Banner-c-01.jpg' %}); background-size: cover;">
+    <div class="container marketing p-1 pt-5 pt-lg-2 pb-5" > `
+        <div class="row row-cols-lg-3 row-cols-1 row-cols-xl-4 align-items-stretch g-4 py-5">
+            {% for post in page.get_children %}
+                <div class="col">
+                {% if post.specific.image %}
+                {% image post.specific.image width-400 as my_image %}
+                    <div class="card card-cover border border-light h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url({{ my_image.url }}); background-size: cover;  height: 300px !important;">
+                        <div class="card-hover h-100 ">
+                            <div class="flex-column p-4 p-md-3 pb-sm-2">
+                                <h5 class="display-7 mt-4 lh-1 fw-bold  text-truncate-1">{{ post.title }}</h5>
+                                <h6 class="mt-4 text-truncate-4">{{ post.specific.intro }}</h6>
+                            </div>
+                            <div class="container text-center">
+                                <a href="{% pageurl post %}" class="btn btn-gradient-small rounded-pill text-light ps-4 px-4 mt-2 mb-2"><h6 class="m-0">XEM THÊM</h6></a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}    
+                </div>
+            {% endfor %}
+            </div>
+        <div class="col text-center">
+            <button class="btn-gradient rounded-pill text-light mt-4"><h5 class="m-0">XEM THÊM DỰ ÁN</h5></button>
+        </div>
+    </div>
+</div>
+{% endblock %}
