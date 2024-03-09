@@ -6,7 +6,7 @@ DEBUG = True
 SECRET_KEY = "django-insecure-r_i)ru(tncrh9xn@92r1*m=e_e-efo&e2#!%ghdv+jo3fx^fin"
 
 # SECURITY WARNING: define the correct hosts in production!
-ALLOWED_HOSTS = ["upinterior.com.vn","upinterior.vn"]
+ALLOWED_HOSTS = ["*","upinterior.com.vn","https://upinterior.com.vn/","http://upinterior.com.vn/"]
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
